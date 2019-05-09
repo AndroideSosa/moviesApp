@@ -10,6 +10,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class Tab1Page implements OnInit {
 
   peliculasRecientes: Pelicula[] = [];
+  populares: Pelicula[] = [];
 
   constructor( private moviesService: MoviesService ){
 
@@ -20,6 +21,12 @@ export class Tab1Page implements OnInit {
     subscribe( resp => {
       this.peliculasRecientes = resp.results;
     });
+
+    this.moviesService.getPopulares()
+      .subscribe(resp => {
+        console.log(resp);
+        this.populares = resp.results;
+      })
   }
 
 }

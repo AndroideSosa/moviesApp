@@ -4,15 +4,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideshowBackdropComponent } from './slideshow-backdrop/slideshow-backdrop.component';
 import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.component';
+import { SlideshowParesComponent } from 'src/app/components/slideshow-pares/slideshow-pares.component';
 
 @NgModule({
   declarations: [
     SlideshowBackdropComponent,
-    SlideshowPosterComponent
+    SlideshowPosterComponent,
+    SlideshowParesComponent
   ],
   exports: [
     SlideshowBackdropComponent,
-    SlideshowPosterComponent
+    SlideshowPosterComponent,
+    SlideshowParesComponent
   ],
   imports: [
     CommonModule,

@@ -24,6 +24,14 @@ export class MoviesService {
 
   }
 
+  getPopulares(){
+
+    const query = '/discover/movie?sort_by=popularity.desc';
+
+    return this.ejecutarQuery<RespuestaMDB>(query);
+
+  }
+
   getFeature(){
 
     const hoy = new Date();
