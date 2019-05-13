@@ -48,7 +48,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row text-center>
       <ion-col size="12">
 
         <ion-chip *ngFor="let genero of pelicula.genres"
@@ -60,7 +60,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-grid>
+  <ion-grid fixed>
     <ion-row>
       <ion-col>
         <ion-label color="primary">
@@ -70,12 +70,37 @@
     </ion-row>
   </ion-grid>
 
-  <ion-slides>
+  <ion-slides [options]="slideOptActores">
     <ion-slide *ngFor="let actor of actores">
       <ion-card class="card-actor">
-        <img [src]="actor.profile_path | imagen" >
+        <img  *ngIf="!actor.profile_path" src="/assets/no-avatar.jpg">
+        <img  *ngIf="actor.profile_path" [src]="actor.profile_path | imagen" >
+
+        <ion-label class="actor-name" color="primary">
+          {{ actor.name }}
+        </ion-label>
       </ion-card>
     </ion-slide>
   </ion-slides>
 
 </ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" color="primary">
+        <ion-icon slot="start" name="arrow-round-back"></ion-icon>
+        <ion-label> Regresar </ion-label>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+        <ion-button (click)="favorito()" color="primary">
+          <ion-icon slot="end" [name]="estrella"></ion-icon>
+          <ion-label> Favorito </ion-label>
+        </ion-button>
+      </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>
